@@ -1,0 +1,14 @@
+{
+  "name": "expresso-documentation",
+  "version": "1.0.0",
+  "description": "This is a documentation for the Expresso Project",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "expresso-documentation"
+  ],
+  "author": "Daniel Okyere",
+  "license": "ISC"
+}
