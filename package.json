@@ -4,11 +4,16 @@
   "description": "This is a documentation for the Expresso Project",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cucumber-js",
+    "start": "liveserver index.html"
   },
   "keywords": [
     "expresso-documentation"
   ],
   "author": "Daniel Okyere",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "liveserver": "^0.1.20",
+    "@cucumber/cucumber": "^7.3.1"
+  }
 }
