@@ -26,6 +26,9 @@ $(document).ready(function() {
           <li class="file">
             <span class="current">Expresso food Feature</span>
           </li>
+          <li class="file">
+            <a href="Host_Privileges.html">Host &amp; Admin Privileges Back end</a>
+          </li>
         </ul>
       </div>
       <div id="feature">
@@ -53,7 +56,7 @@ $(document).ready(function() {
                 <li class="step">
                   <span class="keyword">Then </span>Prompt Everybody for food ordering</li>
                 <li class="step">
-                  <span class="keyword">Then </span>wait for Responses from members</li>
+                  <span class="keyword">Then </span>make 'Payment'</li>
               </ul>
             </div>
             <a class="scenario-link" href="javascript:showImageLink('members-on-the-session-wants-to-initiate-a-food-order')" title="Copy scenario link to clipboard.">
@@ -69,9 +72,7 @@ $(document).ready(function() {
                 <li class="step">
                   <span class="keyword">Given </span>Member has receive notification for "food order"</li>
                 <li class="step">
-                  <span class="keyword">Then </span>Show notification to either "Accept Offer" or "Reject Offer"</li>
-                <li class="step">
-                  <span class="keyword">Given </span>Member has "Accepted offer"</li>
+                  <span class="keyword">Then </span>Show notification to 'Member'</li>
                 <li class="step">
                   <span class="keyword">Then </span>Show "order Food" Page</li>
                 <li class="step">
@@ -83,92 +84,12 @@ $(document).ready(function() {
                 <li class="step">
                   <span class="keyword">And </span>Request confirmation to "find restaurant page"</li>
                 <li class="step">
-                  <span class="keyword">Given </span>Member has "Rejected offer"</li>
+                  <span class="keyword">Given </span>'User' has confirmed 'Details'</li>
                 <li class="step">
-                  <span class="keyword">Then </span>return to "Current Page" member was on</li>
+                  <span class="keyword">Then </span>Generate 'Voucher' for 'User'</li>
               </ul>
             </div>
             <a class="scenario-link" href="javascript:showImageLink('member-has-received-notification-for-food-initiation')" title="Copy scenario link to clipboard.">
-              <i class="icon-link"> </i>
-            </a>
-          </li>
-          <li class="scenario">
-            <div class="scenario-heading" id="member-has-no-nearby-restaurants">
-              <h2>Member has no nearby restaurants</h2>
-            </div>
-            <div class="steps">
-              <ul>
-                <li class="step">
-                  <span class="keyword">Given </span>member is on "find restaurant page"</li>
-                <li class="step">
-                  <span class="keyword">And </span>member finds no "restaurants" available</li>
-                <li class="step">
-                  <span class="keyword">Then </span>Display information for "Potential order" Places near by</li>
-                <li class="step">
-                  <span class="keyword">Then </span>Save details in Database</li>
-                <li class="step">
-                  <span class="keyword">And </span>provide option for "GiftCard" or "receive Money" or "loose order"</li>
-                <li class="step">
-                  <span class="keyword">When </span>"receive Money" is chosen put "money" in "tab"</li>
-                <li class="step">
-                  <span class="keyword">Then </span>Request recomendation from "member"</li>
-              </ul>
-            </div>
-            <a class="scenario-link" href="javascript:showImageLink('member-has-no-nearby-restaurants')" title="Copy scenario link to clipboard.">
-              <i class="icon-link"> </i>
-            </a>
-          </li>
-          <li class="scenario">
-            <div class="scenario-heading" id="member-has-restaurants-available">
-              <h2>Member has restaurants available</h2>
-            </div>
-            <div class="steps">
-              <ul>
-                <li class="step">
-                  <span class="keyword">Given </span>Member is on "Find Restaurant Page"</li>
-                <li class="step">
-                  <span class="keyword">Then </span>display "Budget" from Member that initiated "order"</li>
-                <li class="step">
-                  <span class="keyword">And </span>display "restaurants" for user to select from</li>
-                <li class="step">
-                  <span class="keyword">Given </span>a "restaurant" is selected</li>
-                <li class="step">
-                  <span class="keyword">Then </span>display "Menu" from "restaurants"</li>
-                <li class="step">
-                  <span class="keyword">When </span>a "Meal" is chosen</li>
-                <li class="step">
-                  <span class="keyword">Then </span>select "Drinks" from "restaurants"</li>
-                <li class="step">
-                  <span class="keyword">When </span>"Meal" and "Drinks" are confirmed</li>
-                <li class="step">
-                  <span class="keyword">Then </span>display "delivery details Page"</li>
-                <li class="step">
-                  <span class="keyword">And </span>confirm member "order"</li>
-                <li class="step">
-                  <span class="keyword">Then </span>send "order" to member who initiated purchase</li>
-              </ul>
-            </div>
-            <a class="scenario-link" href="javascript:showImageLink('member-has-restaurants-available')" title="Copy scenario link to clipboard.">
-              <i class="icon-link"> </i>
-            </a>
-          </li>
-          <li class="scenario">
-            <div class="scenario-heading" id="all-group-member-has-place-their-order">
-              <h2>All group  member has place their order</h2>
-            </div>
-            <div class="steps">
-              <ul>
-                <li class="step">
-                  <span class="keyword">Given </span>All member have placed "order"</li>
-                <li class="step">
-                  <span class="keyword">Then </span>return "summary details" to member who initiated purchase</li>
-                <li class="step">
-                  <span class="keyword">And </span>confirm "Total order" with "delivery fee"</li>
-                <li class="step">
-                  <span class="keyword">And </span>display "payment page"</li>
-              </ul>
-            </div>
-            <a class="scenario-link" href="javascript:showImageLink('all-group-member-has-place-their-order')" title="Copy scenario link to clipboard.">
               <i class="icon-link"> </i>
             </a>
           </li>
@@ -187,36 +108,18 @@ $(document).ready(function() {
                 <li class="step">
                   <span class="keyword">Given </span>member confirm "Payment"</li>
                 <li class="step">
-                  <span class="keyword">Then </span>display "order tracking page"</li>
+                  <span class="keyword">Then </span>Send voucher and NOtification to member</li>
               </ul>
             </div>
             <a class="scenario-link" href="javascript:showImageLink('member-wants-to-make-payment')" title="Copy scenario link to clipboard.">
               <i class="icon-link"> </i>
             </a>
           </li>
-          <li class="scenario">
-            <div class="scenario-heading" id="user-want-to-see-order-status-in-progress">
-              <h2>User want to see order status in progress</h2>
-            </div>
-            <div class="steps">
-              <ul>
-                <li class="step">
-                  <span class="keyword">Given </span>User has place an "order"</li>
-                <li class="step">
-                  <span class="keyword">Then </span>display "summary of order"</li>
-                <li class="step">
-                  <span class="keyword">And </span>display "status of order"</li>
-              </ul>
-            </div>
-            <a class="scenario-link" href="javascript:showImageLink('user-want-to-see-order-status-in-progress')" title="Copy scenario link to clipboard.">
-              <i class="icon-link"> </i>
-            </a>
-          </li>
         </ul>
       </div>
       <div id="footer">
-        <p>Test results generated for: Expresso Food , version v1</p>
-        <p>Generated on: 19 August 2021 11:48:26</p>
+        <p>Test results generated for: Expresso Food , version v1.0.1</p>
+        <p>Generated on: 2 September 2021 09:38:03</p>
         <p>Produced by Pickles, version 2.21.1.0</p>
       </div>
     </div>

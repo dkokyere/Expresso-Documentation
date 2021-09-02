@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"[]>
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Host &amp; Admin Privileges Back end</title>
+    <link rel="stylesheet" href="css/master.css" type="text/css" />
+    <link rel="stylesheet" href="css/print.css" type="text/css" media="print" />
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/scripts.js" type="text/javascript"></script>
+    <script type="text/javascript">
+$(document).ready(function() {
+  initializeToc();
+});
+</script>
+    <!-- We are using Font Awesome - http://fortawesome.github.com/Font-Awesome - licensed under CC BY 3.0 -->
+  </head>
+  <body>
+    <div id="container">
+      <div id="top" />
+      <div id="toc">
+        <p class="tocCollapser" title="Collapse Table of Content">«</p>
+        <ul class="features">
+          <li class="file" id="root">
+            <a href="index.html">Home</a>
+          </li>
+          <li class="file">
+            <a href="Food_Expresso.html">Expresso food Feature</a>
+          </li>
+          <li class="file">
+            <span class="current">Host &amp; Admin Privileges Back end</span>
+          </li>
+        </ul>
+      </div>
+      <div id="feature">
+        <h1>Host &amp; Admin Privileges Back end</h1>
+        <div class="description">
+          <p>This feature Describes the necessary flow of the Backend End Points that Host Privileges apply.</p>
+        </div>
+        <ul id="scenarios">
+          <li class="scenario">
+            <div class="scenario-heading" id="user-wants-to-create-a-cafe">
+              <h2>User wants to create a cafe</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">Given </span>'User' has signed in and has 'role' of 'Admin' before creating a 'cafe'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>submit request to 'api/v1/cafe/create' with 'cafe title', 'user id', ['plans']</li>
+                <li class="step">
+                  <span class="keyword">Then </span>server generates '_id', 'code', 'link'</li>
+                <li class="step">
+                  <span class="keyword">And </span>server creates 'general' lounge for user.</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('user-wants-to-create-a-cafe')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="user-wants-to-make-barister">
+              <h2>User wants to make barister</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">Given </span>'User' is 'Admin' on 'Cafe'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>submit request to 'api/v1/cafe/makeCohost' with 'user id'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>server updates 'user' 'status' to 'pseudohost'</li>
+                <li class="step">
+                  <span class="keyword">And </span>return 'user'</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('user-wants-to-make-barister')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="user-wants-to-delete-cafe">
+              <h2>User Wants to Delete Cafe</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">Given </span>'User' has 'role' of 'Admin' on 'Cafe'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>submit request to 'api/v1/cafe/delete' with 'cafe id'</li>
+                <li class="step">
+                  <span class="keyword">When </span>'Cafe' has any 'session' active</li>
+                <li class="step">
+                  <span class="keyword">Then </span>server responds 'Session has one or mor active sessions'</li>
+                <li class="step">
+                  <span class="keyword">When </span>'Cafe' has no 'session' active</li>
+                <li class="step">
+                  <span class="keyword">Then </span>server deletes cafe</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('user-wants-to-delete-cafe')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="admin-wants-to-remove-user-from-lounge">
+              <h2>Admin wants to remove user from lounge</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">Given </span>'User' has 'role' of 'Admin'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>submit request to 'api/v1/lounge/remove/user' with 'lounge id', ['member id']</li>
+                <li class="step">
+                  <span class="keyword">Then </span>server respond with 'isDelete' option for 'member' turned 'True'</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('admin-wants-to-remove-user-from-lounge')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="admin-wants-to-delete-lounge">
+              <h2>Admin wants to delete lounge</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">Given </span>'User' has 'role' of 'Admin'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>submit request to 'api/v1/lounge/delete' with 'lounge id'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>server turn 'isDelete' option for 'lounge' to 'True'</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('admin-wants-to-delete-lounge')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="user-wants-to-leave-lounge">
+              <h2>User wants to leave lounge</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">Given </span>'User' has 'role' 'member' of 'lounge'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>submit request to 'api/v1/lounge/leavelounge' with 'lounge id'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>server update 'lounge' with 'exit lounge' property 'true'</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('user-wants-to-leave-lounge')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="user-wants-to-start-session">
+              <h2>User wants to start session</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">Given </span>'User' has 'role' of 'Host' and 'member' of 'lounge'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>submit request to 'api/v1/sessions/start' with 'user','lounge','attendee id' and 'display name'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>server generates 'session id'</li>
+                <li class="step">
+                  <span class="keyword">And </span>send notification to 'members' in the 'lounge'</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('user-wants-to-start-session')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="member-wants-to-start-session-as-pseudohost">
+              <h2>member wants to start session as pseudohost</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">Given </span>'User' has 'role' of 'pseudohost' and 'member' of 'lounge'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>submit request to 'api/v1/sessions/start' with 'user','lounge','attendee id' and 'display name'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>server generates 'session id'</li>
+                <li class="step">
+                  <span class="keyword">And </span>send notification to 'members' in the 'lounge'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>'User' gets pseudohost privileges</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('member-wants-to-start-session-as-pseudohost')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="member-wants-to-join-on-going-session">
+              <h2>Member wants to join on going session</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">Given </span>'Session' has started</li>
+                <li class="step">
+                  <span class="keyword">Then </span>submit request to 'api/v1/sessions/join' with 'session id', 'attendee id'</li>
+                <li class="step">
+                  <span class="keyword">Given </span>member 'role' is 'host' member joins as 'host'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>member has 'host' privileges</li>
+                <li class="step">
+                  <span class="keyword">Given </span>member 'role ' is 'attendee' member joins as 'member'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>member has 'member' privileges</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('member-wants-to-join-on-going-session')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="host-wants-to-make-member-of-session-host">
+              <h2>Host wants to make member of session host</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">Given </span>'Session' has started and member has 'role' 'host' of 'session'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>submit request to 'api/v1/sessions/changeRole/:role' with 'role' as Params and 'session code' and ['attendee id']</li>
+                <li class="step">
+                  <span class="keyword">Then </span>server changes 'member' 'role' to 'Host'</li>
+                <li class="step">
+                  <span class="keyword">And </span>return ['member list']</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('host-wants-to-make-member-of-session-host')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+          <li class="scenario">
+            <div class="scenario-heading" id="host-wants-to-end-session">
+              <h2>Host wants to end session</h2>
+            </div>
+            <div class="steps">
+              <ul>
+                <li class="step">
+                  <span class="keyword">Given </span>'Session' has started and member has 'role' 'host'</li>
+                <li class="step">
+                  <span class="keyword">Then </span>submit request to 'api/v1/sessions/end/:lounge' with 'lounge id' as Params</li>
+                <li class="step">
+                  <span class="keyword">Then </span>server deactivates 'session'</li>
+              </ul>
+            </div>
+            <a class="scenario-link" href="javascript:showImageLink('host-wants-to-end-session')" title="Copy scenario link to clipboard.">
+              <i class="icon-link"> </i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div id="footer">
+        <p>Test results generated for: Expresso Food , version v1.0.1</p>
+        <p>Generated on: 2 September 2021 09:38:03</p>
+        <p>Produced by Pickles, version 2.21.1.0</p>
+      </div>
+    </div>
+  </body>
+</html>
